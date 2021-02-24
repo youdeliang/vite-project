@@ -4,6 +4,7 @@
 
 <script lang="ts">
   import { ref, defineComponent } from 'vue'
+  import { demoStore } from '/@/store/modules/demo'
   export default defineComponent({
     name: 'HelloWorld',
     props: {
@@ -13,6 +14,8 @@
       }
     },
     setup: () => {
+      demoStore.addCounter(1)
+      console.log('demoStore.c :>> ', demoStore.counter)
       const count = ref(0)
       return { count }
     }
